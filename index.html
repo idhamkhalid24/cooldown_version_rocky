@@ -225,6 +225,24 @@
       #bottom-nav.admin-six-nav .nav-item i{font-size:17px!important}
       #bottom-nav.admin-six-nav .nav-item span{font-size:7.6px!important}
     }
+
+
+    /* === FIX ABSEN MODAL: CENTER + PIN DI ATAS POPUP === */
+    #admin-attendance-modal.modal-wrap.show,
+    #pin-confirm-modal.modal-wrap.show,
+    .admin-attendance-modal-wrap,
+    .pin-confirm-modal-wrap{
+      align-items:center!important;
+      justify-content:center!important;
+      padding:18px!important;
+    }
+    #admin-attendance-modal .modal-sheet,
+    #pin-confirm-modal .modal-sheet{
+      border-radius:22px!important;
+      max-width:392px!important;
+      margin:auto!important;
+    }
+    #pin-confirm-modal{z-index:900!important}
   </style>
 </head>
 <body>
@@ -394,8 +412,10 @@
         .replace(/>/g, '&gt;');
       const wrap = document.createElement('div');
       wrap.id = 'pin-confirm-modal';
-      wrap.className = 'modal-wrap show';
-      wrap.style.zIndex = '420';
+      wrap.className = 'modal-wrap show pin-confirm-modal-wrap';
+      wrap.style.zIndex = '900';
+      wrap.style.alignItems = 'center';
+      wrap.style.justifyContent = 'center';
       wrap.innerHTML = `
         <div class="modal-sheet" style="max-width:360px;border-radius:22px;padding:18px">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
@@ -6722,8 +6742,10 @@ Masukkan PIN admin:`);
     if (old) old.remove();
     const wrap = document.createElement('div');
     wrap.id = 'admin-attendance-modal';
-    wrap.className = 'modal-wrap show';
+    wrap.className = 'modal-wrap show admin-attendance-modal-wrap';
     wrap.style.zIndex = '430';
+    wrap.style.alignItems = 'center';
+    wrap.style.justifyContent = 'center';
     wrap.innerHTML = `
       <div class="modal-sheet" style="max-width:392px;border-radius:22px;padding:16px">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px">
