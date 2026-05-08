@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Rocky Admin</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root{--bg:#f4f8ff;--bg2:#fff;--line:rgba(15,23,42,.08);--text:#10203a;--soft:#64748b;--muted:#94a3b8;--blue:#4f8cff;--blue2:rgba(79,140,255,.12);--green:#16a34a;--green2:rgba(22,163,74,.10);--red:#ef4444;--red2:rgba(239,68,68,.10);--amber:#f59e0b;--amber2:rgba(245,158,11,.12);--shadow:0 18px 48px rgba(70,100,140,.14)}
@@ -93,6 +91,208 @@
     .sectionTitle{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
     .sectionTitle .title{font-size:14px}
     @media(max-width:375px){.top .row{gap:6px!important}.btn.icon{width:36px!important;flex:0 0 36px}.brand h1{font-size:18px!important}}
+
+  
+
+    /* === PATCH COMPACT RINGAN: hanya tampilan, tanpa ubah logika/fitur === */
+    :root{
+      --shadow:0 3px 10px rgba(62,94,146,.08)!important;
+      --line:rgba(15,23,42,.10)!important;
+    }
+    html[data-theme="dark"]{
+      --shadow:0 4px 14px rgba(0,0,0,.26)!important;
+      --line:rgba(148,163,184,.16)!important;
+    }
+    *{scrollbar-width:thin}
+    html,body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+      font-size:11px!important;
+      background:var(--bg)!important;
+      text-rendering:optimizeSpeed!important;
+    }
+    #app{
+      width:min(420px,100%)!important;
+      background:var(--bg)!important;
+      overflow-x:hidden!important;
+    }
+    #app,.card,.sheet,.item,.btn,.input,.hero,.stat,.tabs,.tab,.toast{
+      transition:none!important;
+      animation-duration:.01ms!important;
+    }
+    .wrap{padding:8px 8px 76px!important}
+    .top{gap:6px!important;margin:0 0 7px!important}
+    .top .row{gap:5px!important}
+    h1,.brand h1{font-size:15px!important;line-height:1.05!important;letter-spacing:-.035em!important}
+    .sub{font-size:9px!important;margin-top:1px!important;line-height:1.2!important}
+    .title{font-size:12px!important;line-height:1.15!important}
+    .tiny{font-size:8px!important;letter-spacing:.05em!important}
+    .meta{font-size:9.5px!important;margin-top:2px!important;line-height:1.25!important}
+    .row{gap:5px!important}
+    .grid2,.grid3{gap:6px!important}
+    .mb{margin-bottom:6px!important}
+    .sep{margin:7px 0!important}
+
+    .card,.sheet,.item,.stat,.hero,.bonus-user-card,.daily-bonus-mini,.bonus-mini,.bonus-detail-row,.ops-hero{
+      border-radius:12px!important;
+      box-shadow:var(--shadow)!important;
+      background:var(--bg2)!important;
+    }
+    .pad{padding:8px!important}
+    .hero{padding:9px 10px!important;overflow:hidden!important}
+    .hero::after,.loginCardFancy::before{display:none!important}
+    .hero .val{font-size:20px!important;margin-top:2px!important;line-height:1.05!important}
+    .stat{padding:8px!important;min-height:auto!important}
+    .stat .val{font-size:15px!important;margin-top:2px!important;line-height:1.1!important}
+    .amt{font-size:12.5px!important;line-height:1.15!important}
+
+    .btn{
+      min-height:31px!important;
+      border-radius:10px!important;
+      padding:6px 8px!important;
+      font-size:10.5px!important;
+      gap:5px!important;
+      box-shadow:none!important;
+    }
+    .btn:hover,.btn:active,.daily-bonus-card:active{transform:none!important}
+    .btn.primary{box-shadow:none!important}
+    .btn.icon{width:31px!important;height:31px!important;min-height:31px!important;flex:0 0 31px!important;padding:0!important}
+    .miniBtns{gap:4px!important}
+    .miniBtns .btn,.att-actions .btn{min-height:27px!important;padding:4px 6px!important;border-radius:9px!important;font-size:9.5px!important}
+    .input{
+      min-height:33px!important;
+      border-radius:10px!important;
+      padding:7px 8px!important;
+      font-size:11px!important;
+      background:var(--bg2)!important;
+      box-shadow:none!important;
+    }
+    textarea.input{min-height:58px!important}
+    .input:focus{box-shadow:0 0 0 2px rgba(59,130,246,.10)!important}
+
+    .list{gap:5px!important}
+    .item{padding:7px!important;gap:7px!important}
+    .ico{width:28px!important;height:28px!important;flex-basis:28px!important;border-radius:10px!important}
+    .name{font-size:11px!important;line-height:1.2!important}
+    .chip{padding:3px 6px!important;font-size:8.5px!important;gap:3px!important}
+    .empty{padding:14px 8px!important;font-size:10px!important}
+
+    .tabs{
+      width:min(404px,calc(100% - 12px))!important;
+      height:57px!important;
+      bottom:6px!important;
+      padding:4px!important;
+      gap:2px!important;
+      border-radius:16px!important;
+      backdrop-filter:none!important;
+      -webkit-backdrop-filter:none!important;
+      box-shadow:0 4px 14px rgba(15,23,42,.12)!important;
+    }
+    .tab{border-radius:12px!important;font-size:7.8px!important;gap:2px!important}
+    .tab i{font-size:14px!important}
+    .fab{
+      width:46px!important;
+      height:46px!important;
+      right:12px!important;
+      bottom:68px!important;
+      border-radius:15px!important;
+      box-shadow:0 8px 18px rgba(59,130,246,.22)!important;
+      font-size:17px!important;
+    }
+
+    .modal{
+      padding:10px!important;
+      background:rgba(15,23,42,.28)!important;
+      backdrop-filter:none!important;
+      -webkit-backdrop-filter:none!important;
+    }
+    .sheet{
+      width:min(382px,100%)!important;
+      max-width:382px!important;
+      max-height:90vh!important;
+      overflow:auto!important;
+      padding:10px!important;
+      border-radius:15px!important;
+    }
+    .sheetHead{margin-bottom:7px!important;gap:7px!important}
+    .form{gap:6px!important}
+    .toast{padding:7px 11px!important;font-size:10.5px!important;box-shadow:var(--shadow)!important}
+    .loading{background:rgba(255,255,255,.28)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+    html[data-theme="dark"] .loading{background:rgba(2,8,23,.38)!important}
+    .spin{width:28px!important;height:28px!important;border-width:3px!important}
+
+    .login{padding:10px!important}
+    .loginBox{padding:12px!important}
+    .loginHero{padding:4px 0!important}
+    .loginHero h1{font-size:20px!important;margin-bottom:4px!important}
+    .loginThemeRow{margin-bottom:8px!important}
+
+    .daily-bonus-card{background:var(--bg2)!important}
+    .daily-bonus-card .bonus-total{font-size:18px!important;line-height:1.05!important}
+    .daily-bonus-card .bonus-sub{font-size:9.3px!important;line-height:1.25!important;margin-top:2px!important}
+    .daily-bonus-break{gap:5px!important;margin-top:6px!important}
+    .daily-bonus-mini{padding:6px!important;border-radius:10px!important}
+    .daily-bonus-mini b{font-size:10px!important;margin-top:1px!important}
+    .bonus-detail-row{padding:7px!important;margin-bottom:5px!important;border-radius:11px!important}
+    .bonus-detail-total{font-size:13px!important}
+    .bonus-compact-break{gap:4px!important;margin-top:5px!important}
+    .bonus-compact-break span{font-size:8.8px!important;padding:3px 5px!important}
+    .bonus-user-card{grid-template-columns:30px minmax(0,1fr) 34px!important;padding:7px!important;gap:6px!important;border-radius:12px!important}
+    .bonus-user-card>.btn.amber{width:34px!important;height:34px!important;min-height:34px!important;min-width:34px!important;border-radius:11px!important}
+    .bonus-stats{gap:4px!important;margin-top:5px!important}
+    .bonus-mini{padding:5px!important;border-radius:9px!important}
+    .bonus-mini .tiny{font-size:7.5px!important}
+    .bonus-mini .amt{font-size:10px!important}
+
+    .ops-hero{padding:8px!important;border-radius:12px!important}
+    .filter-row{gap:5px!important}
+    .receipt-preview-box{margin-top:7px!important;padding:8px!important;border-radius:11px!important;max-height:42vh!important}
+    .receipt-preview-text{font-size:10px!important;line-height:1.35!important}
+    .receipt-modal-actions,.tx-action-grid{gap:5px!important}
+
+    @media(max-width:375px){
+      .wrap{padding-left:7px!important;padding-right:7px!important;padding-bottom:72px!important}
+      h1,.brand h1{font-size:14px!important}
+      .hero .val{font-size:18px!important}
+      .grid3{gap:5px!important}
+      .stat{padding:7px!important}
+      .stat .val{font-size:13.5px!important}
+      .tabs{height:54px!important;width:calc(100% - 10px)!important}
+      .tab i{font-size:13px!important}
+      .tab span{font-size:7.3px!important}
+      .bonus-user-card{grid-template-columns:28px minmax(0,1fr) 32px!important}
+      .bonus-user-card>.btn.amber{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important}
+      .daily-bonus-mini{padding:5px!important}
+      .daily-bonus-mini b{font-size:9px!important}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+
+
+    /* === PATCH FIX: Cash Fisik card terlihat jelas di mode terang === */
+    html[data-theme="light"] .hero{
+      background:linear-gradient(135deg,#2563eb 0%,#60a5fa 100%)!important;
+      border:1px solid rgba(37,99,235,.20)!important;
+      color:#fff!important;
+      box-shadow:0 6px 16px rgba(37,99,235,.18)!important;
+    }
+    html[data-theme="light"] .hero .tiny,
+    html[data-theme="light"] .hero .meta,
+    html[data-theme="light"] .hero .val{
+      color:#fff!important;
+    }
+    html[data-theme="light"] .hero .meta{opacity:.92!important}
+    html[data-theme="dark"] .hero{
+      background:linear-gradient(135deg,#1d4ed8 0%,#0ea5e9 100%)!important;
+      color:#fff!important;
+    }
+    html[data-theme="dark"] .hero .tiny,
+    html[data-theme="dark"] .hero .meta,
+    html[data-theme="dark"] .hero .val{
+      color:#fff!important;
+    }
+
 
   </style>
 </head>
